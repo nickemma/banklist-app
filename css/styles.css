@@ -292,3 +292,9 @@ h2 {
 .timer {
   font-weight: 600;
 }
+
+@media (max-width: 768px) {
+  .app {
+    background: red;
+  }
+}
