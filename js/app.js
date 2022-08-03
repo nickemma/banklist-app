@@ -144,7 +144,7 @@ const updateUI = (rate) => {
   displayIncome(rate);
 };
 
-let time = 120;
+let time = 520;
 const startTimer = () => {
   const ticker = () => {
     const min = String(Math.trunc(time / 60)).padStart(2, 0);

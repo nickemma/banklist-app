@@ -10,7 +10,7 @@
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 body {
@@ -18,7 +18,7 @@ body {
   background-color: #f3f3f3;
   height: 100vh;
   padding: 2rem;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 nav {
@@ -296,7 +296,9 @@ h2 {
 
 @media (max-width: 768px) {
   .app {
-    background: red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   nav {
     display: flex;
@@ -321,5 +323,33 @@ h2 {
 
   .login__btn {
     font-size: 3rem;
+  }
+  .summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+  .summary__label {
+    padding: 10px;
+  }
+  .balance {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .balance__date,
+  .balance__label {
+    padding: 10px;
+    font-size: 2.8rem;
+  }
+  .btn--sort {
+    font-size: 2rem;
+    margin: 10px auto;
+  }
+  .logout-timer {
+    margin: 10px;
+    font-size: 2rem;
   }
 }
