@@ -61,8 +61,7 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
 const formatDate = (date) => {
-  const calcDate = (date1, date2) =>
-    Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
+  const calcDate = (date1, date2) => Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
   const daysPassed = calcDate(new Date(), date);
   if (daysPassed === 0) return 'Today';
   if (daysPassed === 1) return 'Yesterday';
@@ -87,8 +86,8 @@ const displayData = (acc, sort = false) => {
     const showUI = `
         <div class="movements__row">
           <div class="movements__type movements__type--${type}">${
-      i + 1
-    } ${type}</div>
+  i + 1
+} ${type}</div>
     <div class="movements__date">${displayDate}</div>
           <div class="movements__value">${move.toFixed(2)}€</div>
         </div>
@@ -144,7 +143,7 @@ const updateUI = (rate) => {
   displayIncome(rate);
 };
 
-let time = 520;
+let time = 360;
 const startTimer = () => {
   const ticker = () => {
     const min = String(Math.trunc(time / 60)).padStart(2, 0);
@@ -172,7 +171,7 @@ let timer;
 btnLogin.addEventListener('click', (e) => {
   e.preventDefault();
   currentAccount = accounts.find(
-    (accts) => accts.username === inputLoginUsername.value
+    (accts) => accts.username === inputLoginUsername.value,
   );
   if (currentAccount?.pin === Number(inputLoginPin.value)) {
     labelWelcome.textContent = `Welcome back, ${
@@ -215,13 +214,13 @@ btnTransfer.addEventListener('click', (e) => {
   e.preventDefault();
   const amount = Number(inputTransferAmount.value);
   const receiver = accounts.find(
-    (acc) => acc.username === inputTransferTo.value
+    (acc) => acc.username === inputTransferTo.value,
   );
   if (
-    amount > 0 &&
-    receiver &&
-    currentAccount.balance >= amount &&
-    receiver?.username !== currentAccount.username
+    amount > 0
+    && receiver
+    && currentAccount.balance >= amount
+    && receiver?.username !== currentAccount.username
   ) {
     currentAccount.movements.push(-amount);
     receiver.movements.push(amount);
@@ -243,8 +242,8 @@ btnLoan.addEventListener('click', (e) => {
   e.preventDefault();
   const amount = Math.floor(inputLoanAmount.value);
   if (
-    amount > 0 &&
-    currentAccount.movements.some((acc) => acc >= amount * 1.2)
+    amount > 0
+    && currentAccount.movements.some((acc) => acc >= amount * 1.2)
   ) {
     setTimeout(() => {
       currentAccount.movements.push(amount);
@@ -262,11 +261,11 @@ btnLoan.addEventListener('click', (e) => {
 btnClose.addEventListener('click', (e) => {
   e.preventDefault();
   if (
-    inputCloseUsername.value === currentAccount.username &&
-    Number(inputClosePin.value) === currentAccount.pin
+    inputCloseUsername.value === currentAccount.username
+    && Number(inputClosePin.value) === currentAccount.pin
   ) {
     const indexClose = accounts.findIndex(
-      (acc) => acc.username === currentAccount.username
+      (acc) => acc.username === currentAccount.username,
     );
     accounts.splice(indexClose, 1);
 
