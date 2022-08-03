@@ -59,7 +59,7 @@ $ npm start to run the local server
 
 ## Click here for live version
 
-- live demo: [coming soon](https://nickemma.github.io/banklist-app/)
+- live demo: [live demo](https://nickemma.github.io/banklist-app/)
 
 ## Authors
 
