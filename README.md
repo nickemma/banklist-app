@@ -2,6 +2,11 @@
 
 BankList App
 
+## Login Password
+
+- User: te or nec
+- Pin: 1111 or 2222
+
 # Description the project.
 
 This is an app like bank where user can make transactions and see the update in real time.
